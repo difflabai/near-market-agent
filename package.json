@@ -1,0 +1,12 @@
+{
+  "name": "near-market-agent",
+  "version": "1.0.0",
+  "description": "Worker agent for market.near.ai - bids on and completes music, code, and research jobs",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "ada_agent",
+  "license": "MIT"
+}

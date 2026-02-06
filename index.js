@@ -26,8 +26,8 @@ const MAX_CONCURRENT_JOBS = 3;
 // Tags that match our capabilities
 const CAPABILITY_TAGS = {
   music: ['music', 'song', 'audio', 'soundtrack'],
-  code: ['code', 'development', 'software', 'javascript', 'python'],
-  research: ['research', 'analysis'],
+  code: ['code', 'development', 'software', 'javascript', 'python', 'programming'],
+  research: ['research', 'analysis', 'report', 'survey'],
 };
 
 // Bidding strategy per category
@@ -130,7 +130,9 @@ function loadState() {
 function saveState(state) {
   try {
     fs.mkdirSync(STATE_DIR, { recursive: true });
-    fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2));
+    const tmp = STATE_FILE + '.tmp';
+    fs.writeFileSync(tmp, JSON.stringify(state, null, 2));
+    fs.renameSync(tmp, STATE_FILE);
   } catch (err) {
     log('error', 'Failed to save state', { error: err.message });
   }
